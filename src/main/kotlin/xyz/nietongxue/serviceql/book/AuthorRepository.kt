@@ -1,8 +1,8 @@
 
-package xyz.nietongxue.serviceql
+package xyz.nietongxue.serviceql.book
 
 import org.springframework.stereotype.Component
-import xyz.nietongxue.serviceql.Author
+import xyz.nietongxue.serviceql.book.Author
 
 @Component
 class AuthorRepository {

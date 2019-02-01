@@ -1,7 +1,6 @@
-package xyz.nietongxue.serviceql
+package xyz.nietongxue.serviceql.book
 
 import org.springframework.stereotype.Component
-import xyz.nietongxue.serviceql.Book
 
 import java.util.ArrayList
 

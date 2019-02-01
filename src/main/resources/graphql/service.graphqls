@@ -1,0 +1,27 @@
+type Query {
+    services: [Service!]!
+    links: [Link!]!
+}
+
+type Service {
+    id: String!
+    name: String!
+    version:String!
+    type: ServiceType!
+    provider: Application!
+}
+
+type Link {
+    id :String!
+    service : Service!
+    consumer : Application!
+}
+
+type Application {
+    id: String!
+    name: String!
+}
+
+enum ServiceType {
+    Dubbo, Event
+}
