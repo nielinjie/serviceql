@@ -1,5 +1,6 @@
 package xyz.nietongxue.serviceql
 
-data class Book(val id: Int, val name: String, val authorId: Int)
 
-data class Author(val id: Int, val name: String)
+data class Book(var id: Int, var name: String, var authorId: Int)
+
+data class Author(var id: Int, var name : String)
