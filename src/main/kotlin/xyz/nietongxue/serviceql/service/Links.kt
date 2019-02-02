@@ -9,8 +9,15 @@ class LinkResolver(val serviceRepository: ServiceRepository) : GraphQLResolver<L
 }
 
 @Component
-class LinkRepository(val applicationRepository: ApplicationRepository){
-    fun all() = listOf(Link(" a to b", "service.a", applicationRepository.b()))
+class LinkRepository(val applicationRepository: ApplicationRepository) {
+    private val lks: MutableList<Link> = mutableListOf(
+//            Link(" a to b", "service.a", applicationRepository.b())
+    )
+
+    fun all() = lks
+    fun add(links: List<Link>) {
+        lks.addAll(links)
+    }
 }
 
 data class Link(val id: String, val serviceId: String, val consumer: Application)

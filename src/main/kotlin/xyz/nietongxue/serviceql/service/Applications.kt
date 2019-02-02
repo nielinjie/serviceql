@@ -4,9 +4,15 @@ import org.springframework.stereotype.Component
 
 @Component
 class ApplicationRepository {
-    fun a() = Application("a", "A")
-    fun b() = Application("b", "B")
+    private val apps = mutableListOf<Application>(
+//            Application("a", "A"),
+//                    Application("b", "B")
+    )
 
+    fun getByName(name:String):Application? = apps.find { it.name == name }
+    fun add(application: Application){
+        this.apps.add(application)
+    }
 }
 
 data class Application(val id: String, val name: String)
