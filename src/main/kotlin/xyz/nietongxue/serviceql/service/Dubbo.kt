@@ -23,9 +23,9 @@ object DubboAdmin {
                                 XpathSelector("//table[@id=table_o]//a/text()")
                         )
                                 //TODO 生产环境删除。
-                                .take(50)
+                                .filter{it.endsWith(".dev")}
                                 .forEach {
-                                    println(it)
+
                                     ApplicationsPage(it).run()
                                 }
                     }.run()

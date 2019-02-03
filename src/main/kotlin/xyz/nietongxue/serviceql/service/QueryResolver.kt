@@ -8,8 +8,8 @@ class QueryResolver(
         val serviceRepository: ServiceRepository,
         val linkRepository: LinkRepository
 ) : GraphQLQueryResolver {
-    fun services(): List<Service> = serviceRepository.all()
-    fun links():List<Link> = linkRepository.all()
+    fun services(): List<Service> = serviceRepository.all().toList()
+    fun links():List<Link> = linkRepository.all().toList()
 }
 
 

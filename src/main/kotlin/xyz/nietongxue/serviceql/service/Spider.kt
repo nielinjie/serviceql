@@ -3,6 +3,7 @@ package xyz.nietongxue.serviceql.service
 import kotlinx.coroutines.delay
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import java.time.Duration
 import java.util.Date
 
 @Component
@@ -12,7 +13,7 @@ class Task(val serviceRepository: ServiceRepository) {
 //
 //        println("Timer is saying - " + Date().toGMTString())
 //    }
-    @Scheduled(fixedDelay = 60000, initialDelay = 2000)
+    @Scheduled(fixedDelay = 1000L*60L*60L, initialDelay = 2000)
     fun spider() {
         DubboAdmin.serviceRepository = this.serviceRepository
         DubboAdmin.HomePage().run()

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class ApplicationRepository {
-    private val apps = mutableListOf<Application>(
+    private val apps = mutableSetOf<Application>(
 //            Application("a", "A"),
 //                    Application("b", "B")
     )

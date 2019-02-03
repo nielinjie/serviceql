@@ -10,7 +10,7 @@ class LinkResolver(val serviceRepository: ServiceRepository) : GraphQLResolver<L
 
 @Component
 class LinkRepository(val applicationRepository: ApplicationRepository) {
-    private val lks: MutableList<Link> = mutableListOf(
+    private val lks: MutableSet<Link> = mutableSetOf(
 //            Link(" a to b", "service.a", applicationRepository.b())
     )
 
