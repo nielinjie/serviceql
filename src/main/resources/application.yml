@@ -17,3 +17,8 @@ graphql:
     actuator-metrics: true
 graphiql:
   enabled: true
+
+dubbo:
+  admin:
+    url: http://10.101.0.103:8080/governance/
+    auth: cm9vdDpyb290

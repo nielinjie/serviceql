@@ -1,25 +1,26 @@
 package xyz.nietongxue.serviceql.service
 
 import kotlinx.coroutines.delay
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import java.time.Duration
 import java.util.Date
 
 @Component
-class Task(val serviceRepository: ServiceRepository) {
-    //    @Scheduled(fixedRate = 60000)
-//    fun timer() {
-//
-//        println("Timer is saying - " + Date().toGMTString())
-//    }
-    @Scheduled(fixedDelay = 1000L*60L*60L, initialDelay = 2000)
+class Spider(val serviceRepository: ServiceRepository, val issueRepository: IssueRepository, val linkRepository: LinkRepository) {
+
+
+
+    @Scheduled(fixedDelay = 1000L * 60L * 60L, //1hour
+            initialDelay = 2000)
     fun spider() {
-        DubboAdmin.serviceRepository = this.serviceRepository
-        DubboAdmin.HomePage().run()
+        HomePage().run()
     }
+
+
 }
 
 //fun main() {
-//    Task(ServiceRepository(ApplicationRepository())).spider()
+//    Spider(ServiceRepository(ApplicationRepository())).spider()
 //}

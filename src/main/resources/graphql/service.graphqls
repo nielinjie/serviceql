@@ -1,19 +1,20 @@
 type Query {
     services: [Service!]!
     links: [Link!]!
+    issues: [Issue!]!
 }
 
 type Service {
     id: String!
     name: String!
-    version:String!
+    version: String!
     type: ServiceType!
     provider: Application!
 }
 
 type Link {
-    id :String!
-    service : Service!
+    id : String!
+    service : Service
     consumer : Application!
 }
 
@@ -24,4 +25,11 @@ type Application {
 
 enum ServiceType {
     Dubbo, Event
+}
+
+type Issue {
+    id: String!
+    message: String!
+    level: Int!
+    linkId: String
 }

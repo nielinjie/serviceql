@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component
 @Component
 class ServiceRepository(val applicationRepository: ApplicationRepository
                         , val linkRepository: LinkRepository) {
-    private val services = mutableMapOf<String,Service>(
+    private val services = mutableMapOf<String, Service>(
 //            Service("service.a", "the service", "1.0.0", ServiceType.Dubbo, applicationRepository.a())
     )
 
-    fun all() = services.values
+    fun all() = services.values.toList()
     fun getById(id: String) = services.get(id)
     fun addFromDubbo(serviceString: String, providers: List<String>, consumers: List<String>) {
         val parts = serviceString.split(":")
@@ -28,7 +28,7 @@ class ServiceRepository(val applicationRepository: ApplicationRepository
         }.map {
             Link(serviceString + it.name, service.id, it)
         }
-        services.put(service.id,service)
+        services.put(service.id, service)
         linkRepository.add(links)
     }
 }
