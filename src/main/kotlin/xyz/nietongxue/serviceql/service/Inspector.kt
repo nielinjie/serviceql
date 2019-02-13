@@ -22,7 +22,6 @@ class Inspec(val issueRepository: IssueRepository) {
             initialDelay = 1000L * 60L * 5L  //5min
     )
     fun inspect() {
-        issueRepository.clear()
         inspectors.forEach {
             issueRepository.addAll(it.inspect())
         }

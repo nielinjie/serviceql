@@ -22,3 +22,8 @@ dubbo:
   admin:
     url: http://10.101.0.103:8080/governance/
     auth: cm9vdDpyb290
+
+rabbit:
+  console:
+    url: http://rabbit.juma.com/api/
+    auth: YWRtaW46VEcmJmptMDkxNg==

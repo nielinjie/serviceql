@@ -9,9 +9,13 @@ class ApplicationRepository {
 //                    Application("b", "B")
     )
 
-    fun getByName(name:String):Application? = apps.find { it.name == name }
-    fun add(application: Application){
+    fun getByName(name: String): Application? = apps.find { it.name == name }
+    fun add(application: Application) {
         this.apps.add(application)
+    }
+
+    fun all(): List<Application> {
+        return apps.toList()
     }
 }
 

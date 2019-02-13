@@ -31,6 +31,24 @@ class ServiceRepository(val applicationRepository: ApplicationRepository
         services.put(service.id, service)
         linkRepository.add(links)
     }
+
+    fun addFromRabbit(source: Name, destination: Name) {
+        val service = Service(source.string, source.string, "", ServiceType.Event,
+                applicationRepository.getByName(source.nomarlized.first())
+                        ?: Application(source.nomarlized.first(), source.nomarlized.first()).also {
+                            applicationRepository.add(it)
+                        }
+        )
+        val link =
+                (applicationRepository.getByName(destination.nomarlized.first())
+                        ?: Application(destination.nomarlized.first(), destination.nomarlized.first()).also {
+                            applicationRepository.add(it)
+                        }).let {
+                    Link(source.string + it.name, service.id, it)
+                }
+        services.put(service.id, service)
+        linkRepository.add(listOf(link))
+    }
 }
 
 data class Service(val id: String, val name: String, val version: String, val type: ServiceType, val provider: Application?)

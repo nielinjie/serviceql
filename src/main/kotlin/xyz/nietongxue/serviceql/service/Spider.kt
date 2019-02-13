@@ -13,9 +13,18 @@ class Spider(val serviceRepository: ServiceRepository, val issueRepository: Issu
 
 
     @Scheduled(fixedDelay = 1000L * 60L * 60L, //1hour
-            initialDelay = 2000)
+            initialDelay = 7000)
     fun spider() {
         HomePage().run()
+    }
+
+
+
+
+    @Scheduled(fixedDelay = 1000L * 60L * 60L, //1hour
+            initialDelay = 2000)
+    fun console(){
+        BindingPage().run()
     }
 
 

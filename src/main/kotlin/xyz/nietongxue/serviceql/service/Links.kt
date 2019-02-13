@@ -31,8 +31,9 @@ class LinkInspector(val linkRepository: LinkRepository, val serviceRepository: S
         return linkRepository.all().filter {
             serviceRepository.getById(it.serviceId)?.provider == null
         }.map {
-            Issue(
-                    UUID.randomUUID().toString(), "no provider link -  service=${it.serviceId}", 5, it.id
+            Issue("no provider link - service = ${it.serviceId}",
+                    "no provider link - service = ${it.serviceId}",
+                    5, it.id
             )
         }
     }

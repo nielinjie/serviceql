@@ -3,8 +3,8 @@ package xyz.nietongxue.serviceql.service
 import org.springframework.stereotype.Component
 
 @Component
-class IssueRepository(val serviceRepository: ServiceRepository) {
-    private val issues: MutableList<Issue> = mutableListOf()
+class IssueRepository {
+    private val issues: MutableSet<Issue> = mutableSetOf()
     fun add(issue: Issue) {
         issues.add(issue)
     }
@@ -14,9 +14,7 @@ class IssueRepository(val serviceRepository: ServiceRepository) {
         this.issues.addAll(issues)
     }
 
-    fun clear() {
-        this.issues.clear()
-    }
+
 }
 
 data class Issue(val id: String, val message: String, val level: Int, val linkId: String?)

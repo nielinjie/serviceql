@@ -2,6 +2,8 @@ type Query {
     services: [Service!]!
     links: [Link!]!
     issues: [Issue!]!
+    applications : [Application!]!
+    linksByApplication(provider:String, consumer:String):[Link!]!
 }
 
 type Service {
@@ -9,7 +11,7 @@ type Service {
     name: String!
     version: String!
     type: ServiceType!
-    provider: Application!
+    provider: Application
 }
 
 type Link {

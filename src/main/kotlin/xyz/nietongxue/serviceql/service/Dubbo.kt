@@ -6,13 +6,12 @@ import com.cv4j.netdiscovery.core.parser.selector.XpathSelector
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import us.codecraft.xsoup.Xsoup
-import xyz.nietongxue.serviceql.ApplicationBootConfiguration
 import xyz.nietongxue.serviceql.bean
 import java.util.*
 import kotlin.random.Random
 
 @Component
-class DubboAdmin(val serviceRepository: ServiceRepository) {
+class DubboAdmin {
 
     @Value("\${dubbo.admin.url}")
     var url: String? = null
